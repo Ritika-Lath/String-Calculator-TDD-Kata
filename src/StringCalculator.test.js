@@ -21,4 +21,8 @@ describe('String Calculator',()=>{
     test('should return sum of numbers even if any special character is added', () => {
         expect(addString("//;\n2;3;4")).toBe(9);
     });
+
+    test('should return 0 if only blank spaces are there', () => {
+        expect(addString("         ")).toBe(0);
+    });
 })
