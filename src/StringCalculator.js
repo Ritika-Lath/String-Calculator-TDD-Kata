@@ -4,7 +4,7 @@ import { addString } from './utils/addString';
 const StringCalculator = () => {
     const [input, setInput] = useState('');
     const [result, setResult] = useState(0);
-  // console.log("input",typeof(input))
+  console.log("input",typeof(input))
     const handleSubmit = (e) => {
       e.preventDefault();
       setResult(addString(input));

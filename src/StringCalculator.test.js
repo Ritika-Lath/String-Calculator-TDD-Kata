@@ -17,4 +17,8 @@ describe('String Calculator',()=>{
     test('should return sum of numbers for multiple string if they are a number', () => {
         expect(addString("1,2,3,4")).toBe(10);
     });
+
+    test('should return sum of numbers even if any special character is added', () => {
+        expect(addString("//;\n2;3;4")).toBe(9);
+    });
 })
