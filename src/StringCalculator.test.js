@@ -25,4 +25,8 @@ describe('String Calculator',()=>{
     test('should return 0 if only blank spaces are there', () => {
         expect(addString("         ")).toBe(0);
     });
+
+    test('should return sum if any number is input within ""', () => {
+        expect(addString(` "2" `      )).toBe(2);
+    });
 })
