@@ -1,7 +1,8 @@
 export const addString = (numbers) => {
+
     if (!numbers.trim()) return 0;
 
-    let delimiter= /[^0-9-]+/;
+    let delimiter = /[^0-9-]+/;
 
     if (numbers.startsWith("//")) {
         const parts = numbers.split("\n", 2);

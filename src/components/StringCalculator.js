@@ -1,32 +1,33 @@
-import React,{useState} from 'react'
+import React, { useState } from 'react'
 import { addString } from '../utils/addString';
 
 const StringCalculator = () => {
-    const [input, setInput] = useState('');
-    const [result, setResult] = useState(0);
-  // console.log("input",typeof(input))
-    const handleSubmit = (e) => {
-      e.preventDefault();
-      setResult(addString(input));
-    };
-  
-    return (
-      <div>
-        <h1>String Calculator</h1>
-        <form onSubmit={handleSubmit}>
-          <input
-            type="text"
-            value={input}
-            onChange={(e) => setInput(e.target.value)}
-            placeholder="Enter numbers"
-          />
-          <button type="submit">Calculate</button>
-        </form>
-        <div>
-          <h2>Result: {result}</h2>
-        </div>
-      </div>
-    );
+
+  const [stringInput, setStringInput] = useState('');
+  const [sum, setSum] = useState(0);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setSum(addString(stringInput));
   };
-  
-  export default StringCalculator;
+
+  return (
+    <div>
+      <h1>String Calculator</h1>
+      <form onSubmit={handleSubmit}>
+        <stringInput
+          type="text"
+          value={stringInput}
+          onChange={(e) => setStringInput(e.target.value)}
+          placeholder="Enter numbers"
+        />
+        <button type="submit">Calculate</button>
+      </form>
+      <div>
+        <h2>Result: {sum}</h2>
+      </div>
+    </div>
+  );
+};
+
+export default StringCalculator;
