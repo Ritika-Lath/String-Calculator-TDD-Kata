@@ -15,7 +15,7 @@ const StringCalculator = () => {
     <div>
       <h1>String Calculator</h1>
       <form onSubmit={handleSubmit}>
-        <stringInput
+        <input
           type="text"
           value={stringInput}
           onChange={(e) => setStringInput(e.target.value)}
