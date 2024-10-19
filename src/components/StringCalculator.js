@@ -1,14 +1,21 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 import { addString } from '../utils/addString';
 
 const StringCalculator = () => {
-
   const [stringInput, setStringInput] = useState('');
   const [sum, setSum] = useState(0);
+  const [error, setError] = useState(''); // New state for error messages
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setSum(addString(stringInput));
+    setError(''); 
+
+    try {
+      const result = addString(stringInput);
+      setSum(result);
+    } catch (err) {
+      setError(err.message); 
+    }
   };
 
   return (
@@ -24,7 +31,8 @@ const StringCalculator = () => {
         <button type="submit">Calculate</button>
       </form>
       <div>
-        <h2>Result: {sum}</h2>
+        <h2>Result: {error ? 'Error' : sum}</h2>
+        {error && <p style={{ color: 'red' }}>{error}</p>} {/* Display error message */}
       </div>
     </div>
   );
