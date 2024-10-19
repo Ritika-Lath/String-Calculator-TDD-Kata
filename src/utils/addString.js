@@ -1,21 +1,30 @@
-export const addString = (numbers) => {
-
-    if (!numbers.trim()) return 0;
-
-    let delimiter = /[^0-9-]+/;
-
-    if (numbers.startsWith("//")) {
-        const parts = numbers.split("\n", 2);
-        delimiter = new RegExp(`[${parts[0].substring(2)}]`);
-        numbers = parts[1];
+export function addString(numbers) {
+   
+    if (!numbers.trim()) {
+        return 0;
     }
 
-    numbers = numbers.replace(/['"\s]/g, '');
+    const delimiterPattern = /[\n,;]+/;
+    const separateNumbers = numbers.replace(/"/g, "").split(delimiterPattern);
+    
+    let sum = 0;
+    const negatives = [];
 
-    const numArray = numbers
-        .split(delimiter)
-        .map(num => parseInt(num, 10))
-        .filter(num => !isNaN(num));
+    for (const num of separateNumbers) {
+        const parsedNum = parseInt(num, 10);
+        
+        if (!isNaN(parsedNum)) {
+            if (parsedNum < 0) {
+                negatives.push(parsedNum);
+            } else {
+                sum += parsedNum;
+            }
+        }
+    }
 
-    return numArray.reduce((sum, num) => sum + num, 0);
-};
+    if (negatives.length > 0) {
+        throw new Error(`Negative numbers not allowed: ${negatives.join(', ')}`);
+    }
+
+    return sum; 
+}
