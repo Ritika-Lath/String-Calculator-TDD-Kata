@@ -37,4 +37,8 @@ describe('String Calculator',()=>{
     test('should return sum if any +ve or -ve number is input', () => {
         expect(addString("1,-2,3,-4")).toBe(-2);
     });
+
+    test('should return sum if any special character is input', () => {
+        expect(addString("1,-2,3,-4,abc,09,{")).toBe(7);
+    });
 })
