@@ -1,4 +1,4 @@
-import { addString } from "./utils/addString";
+import { addString } from "../utils/addString";
 
 describe('String Calculator',()=>{
 
@@ -16,6 +16,10 @@ describe('String Calculator',()=>{
 
     test('should return sum of numbers for multiple string if they are a number', () => {
         expect(addString("1,2,3,4")).toBe(10);
+    });
+
+    test('should return sum of numbers even if any alphabets are added', () => {
+        expect(addString("1,qrt,5,3")).toBe(9);
     });
 
     test('should return sum of numbers even if any special character is added', () => {

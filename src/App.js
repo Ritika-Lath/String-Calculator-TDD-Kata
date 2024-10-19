@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import StringCalculator from './StringCalculator';
+import StringCalculator from './components/StringCalculator';
 
 function App() {
   return (
